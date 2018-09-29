@@ -17,10 +17,10 @@ app.get('/:id', (req, res) => {
     res.status(302).send()
   }
   else {
-    res.send(`Sorry, no configuration set up for ${req.get('host')}`)
+    res.send(`Sorry, no configuration set up for the domain name "${req.get('host')}".`)
   }
 })
-app.get('*', (req, res) => res.send(`How to use: https://${req.get('host')}/{id}`))
+app.get('*', (req, res) => res.send(`How to use: ${req.get('host')}/{id}`))
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => console.log(`App listening on port ${PORT}\nConfig:`, config))
